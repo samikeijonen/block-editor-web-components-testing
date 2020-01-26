@@ -408,7 +408,6 @@ customElements.define('cover-l', _web_components_cover__WEBPACK_IMPORTED_MODULE_
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Cover; });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
@@ -453,13 +452,10 @@ function (_HTMLElement) {
     _this.render = function () {
       _this.i = "Cover-".concat([_this.centered, _this.space, _this.minHeight, _this.noPad].join(''));
       _this.dataset.i = _this.i;
-
-      if (!document.getElementById(_this.i)) {
-        var styleEl = document.createElement('style');
-        styleEl.id = _this.i;
-        styleEl.innerHTML = "\n\t\t\tcover-l {\n\t\t\t\tdisplay: flex;\n\t\t\t\tflex-direction: column;\n\t\t\t\tposition: relative;\n\t\t\t}\n\n\t\t\t.cover-l-bg,\n\t\t\t.editor-styles-wrapper .cover-l-bg {\n\t\t\t\tbottom: 0;\n\t\t\t\tobject-fit: cover;\n\t\t\t\tposition: absolute;\n\t\t\t\theight: 100%;\n\t\t\t\tleft: 0;\n\t\t\t\tright: 0;\n\t\t\t\ttop: 0;\n\t\t\t\twidth: 100%;\n\t\t\t\tz-index: 0;\n\t\t\t}\n\n\t\t\t[data-i=\"".concat(_this.i, "\"] {\n\t\t\t  min-height: ").concat(_this.minHeight, ";\n\t\t\t  padding: ").concat(!_this.noPad ? _this.space : '0', ";\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > * {\n\t\t\t  margin-top: ").concat(_this.space, ";\n\t\t\t  margin-bottom: ").concat(_this.space, ";\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > :first-child:not(").concat(_this.centered, ") {\n\t\t\t  margin-top: 0;\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > :last-child:not(").concat(_this.centered, ") {\n\t\t\t  margin-bottom: 0;\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > ").concat(_this.centered, ",\n\t\t\t.editor-styles-wrapper [data-i=\"").concat(_this.i, "\"] > * {\n\t\t\t  margin-top: auto;\n\t\t\t  margin-bottom: auto;\n\t\t\t}\n\n\t\t\t.centered,\n\t\t\t.editor-styles-wrapper .centered {\n\t\t\t\tbackground-color: rgba(255, 255, 255, 0.5);\n\t\t\t\tmargin-left: auto;\n\t\t\t\tmargin-right: auto;\n\t\t\t\tmax-width: 30rem;\n\t\t\t\tpadding: 1.5rem;\n\t\t\t\tposition: relative;\n\t\t\t\ttext-align: center;\n\t\t\t\tz-index: 10;\n\t\t\t}\n\t\t  ").replace(/\s\s+/g, ' ').trim();
-        document.head.appendChild(styleEl);
-      }
+      var styleEl = document.createElement('style');
+      styleEl.id = _this.i;
+      styleEl.innerHTML = "\n\t\tcover-l {\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: column;\n\t\t\tposition: relative;\n\t\t}\n\n\t\t.cover-l-bg,\n\t\t.editor-styles-wrapper .cover-l-bg {\n\t\t\tbottom: 0;\n\t\t\tobject-fit: cover;\n\t\t\tposition: absolute;\n\t\t\theight: 100%;\n\t\t\tleft: 0;\n\t\t\tright: 0;\n\t\t\ttop: 0;\n\t\t\twidth: 100%;\n\t\t\tz-index: 0;\n\t\t}\n\n\t\t[data-i=\"".concat(_this.i, "\"] {\n\t\t\tmin-height: ").concat(_this.minHeight, ";\n\t\t\tpadding: ").concat(!_this.noPad ? _this.space : '0', ";\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > * {\n\t\t\tmargin-top: ").concat(_this.space, ";\n\t\t\tmargin-bottom: ").concat(_this.space, ";\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > :first-child:not(").concat(_this.centered, ") {\n\t\t\tmargin-top: 0;\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > :last-child:not(").concat(_this.centered, ") {\n\t\t\tmargin-bottom: 0;\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > ").concat(_this.centered, ",\n\t\t.editor-styles-wrapper [data-i=\"").concat(_this.i, "\"] > * {\n\t\t\tmargin-top: auto;\n\t\t\tmargin-bottom: auto;\n\t\t}\n\n\t\t.centered,\n\t\t.editor-styles-wrapper .centered {\n\t\t\tbackground-color: rgba(255, 255, 255, 0.5);\n\t\t\tmargin-left: auto;\n\t\t\tmargin-right: auto;\n\t\t\tmax-width: 30rem;\n\t\t\tpadding: 1.5rem;\n\t\t\tposition: relative;\n\t\t\ttext-align: center;\n\t\t\tz-index: 10;\n\t\t}\n\t\t").replace(/\s\s+/g, ' ').trim();
+      document.head.appendChild(styleEl);
     };
 
     return _this;
@@ -522,7 +518,7 @@ function (_HTMLElement) {
   return Cover;
 }(_babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5___default()(HTMLElement));
 
-
+/* harmony default export */ __webpack_exports__["default"] = (Cover);
 
 /***/ }),
 

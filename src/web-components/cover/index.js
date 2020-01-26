@@ -8,73 +8,72 @@
  * @property {string} minHeight=40rem The minimum height for the **Cover**
  * @property {boolean} noPad=false Whether the spacing is also applied as padding to the container element
  */
-export default class Cover extends HTMLElement {
+class Cover extends HTMLElement {
 	constructor() {
 	  super();
+
 	  this.render = () => {
 		this.i = `Cover-${[this.centered, this.space, this.minHeight, this.noPad].join('')}`;
 		this.dataset.i = this.i;
-		if (!document.getElementById(this.i)) {
-		  let styleEl = document.createElement('style');
-		  styleEl.id = this.i;
-		  styleEl.innerHTML = `
-			cover-l {
-				display: flex;
-				flex-direction: column;
-				position: relative;
-			}
-
-			.cover-l-bg,
-			.editor-styles-wrapper .cover-l-bg {
-				bottom: 0;
-				object-fit: cover;
-				position: absolute;
-				height: 100%;
-				left: 0;
-				right: 0;
-				top: 0;
-				width: 100%;
-				z-index: 0;
-			}
-
-			[data-i="${this.i}"] {
-			  min-height: ${this.minHeight};
-			  padding: ${!this.noPad ? this.space : '0'};
-			}
-
-			[data-i="${this.i}"] > * {
-			  margin-top: ${this.space};
-			  margin-bottom: ${this.space};
-			}
-
-			[data-i="${this.i}"] > :first-child:not(${this.centered}) {
-			  margin-top: 0;
-			}
-
-			[data-i="${this.i}"] > :last-child:not(${this.centered}) {
-			  margin-bottom: 0;
-			}
-
-			[data-i="${this.i}"] > ${this.centered},
-			.editor-styles-wrapper [data-i="${this.i}"] > * {
-			  margin-top: auto;
-			  margin-bottom: auto;
-			}
-
-			.centered,
-			.editor-styles-wrapper .centered {
-				background-color: rgba(255, 255, 255, 0.5);
-				margin-left: auto;
-				margin-right: auto;
-				max-width: 30rem;
-				padding: 1.5rem;
-				position: relative;
-				text-align: center;
-				z-index: 10;
-			}
-		  `.replace(/\s\s+/g, ' ').trim();
-		  document.head.appendChild(styleEl);
+		let styleEl = document.createElement('style');
+		styleEl.id = this.i;
+		styleEl.innerHTML = `
+		cover-l {
+			display: flex;
+			flex-direction: column;
+			position: relative;
 		}
+
+		.cover-l-bg,
+		.editor-styles-wrapper .cover-l-bg {
+			bottom: 0;
+			object-fit: cover;
+			position: absolute;
+			height: 100%;
+			left: 0;
+			right: 0;
+			top: 0;
+			width: 100%;
+			z-index: 0;
+		}
+
+		[data-i="${this.i}"] {
+			min-height: ${this.minHeight};
+			padding: ${!this.noPad ? this.space : '0'};
+		}
+
+		[data-i="${this.i}"] > * {
+			margin-top: ${this.space};
+			margin-bottom: ${this.space};
+		}
+
+		[data-i="${this.i}"] > :first-child:not(${this.centered}) {
+			margin-top: 0;
+		}
+
+		[data-i="${this.i}"] > :last-child:not(${this.centered}) {
+			margin-bottom: 0;
+		}
+
+		[data-i="${this.i}"] > ${this.centered},
+		.editor-styles-wrapper [data-i="${this.i}"] > * {
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+
+		.centered,
+		.editor-styles-wrapper .centered {
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 30rem;
+			padding: 1.5rem;
+			position: relative;
+			text-align: center;
+			z-index: 10;
+		}
+		`.replace(/\s\s+/g, ' ').trim();
+		document.head.appendChild(styleEl);
 	  }
 	}
 
@@ -127,3 +126,5 @@ export default class Cover extends HTMLElement {
 		this.render();
 	}
 }
+
+export default Cover;
