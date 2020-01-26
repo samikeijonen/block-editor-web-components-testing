@@ -3,9 +3,9 @@
  * @description
  * A custom element for covering a block-level element horizontally,
  * with a max-width value representing the typographic measure
- * @property {string} centered=h1 A simple selector such an element or class selector, representing the centered (main) element in the cover
+ * @property {string} centered=h2 A simple selector such an element or class selector, representing the centered (main) element in the cover
  * @property {string} space=var(--s1) The minimum space between and around all of the child elements
- * @property {string} minHeight=100vh The minimum height for the **Cover**
+ * @property {string} minHeight=40rem The minimum height for the **Cover**
  * @property {boolean} noPad=false Whether the spacing is also applied as padding to the container element
  */
 export default class Cover extends HTMLElement {
@@ -18,6 +18,25 @@ export default class Cover extends HTMLElement {
 		  let styleEl = document.createElement('style');
 		  styleEl.id = this.i;
 		  styleEl.innerHTML = `
+			cover-l {
+				display: flex;
+				flex-direction: column;
+				position: relative;
+			}
+
+			.cover-l-bg,
+			.editor-styles-wrapper .cover-l-bg {
+				bottom: 0;
+				object-fit: cover;
+				position: absolute;
+				height: 100%;
+				left: 0;
+				right: 0;
+				top: 0;
+				width: 100%;
+				z-index: 0;
+			}
+
 			[data-i="${this.i}"] {
 			  min-height: ${this.minHeight};
 			  padding: ${!this.noPad ? this.space : '0'};
@@ -36,9 +55,22 @@ export default class Cover extends HTMLElement {
 			  margin-bottom: 0;
 			}
 
-			[data-i="${this.i}"] > ${this.centered} {
+			[data-i="${this.i}"] > ${this.centered},
+			.editor-styles-wrapper [data-i="${this.i}"] > * {
 			  margin-top: auto;
 			  margin-bottom: auto;
+			}
+
+			.centered,
+			.editor-styles-wrapper .centered {
+				background-color: rgba(255, 255, 255, 0.5);
+				margin-left: auto;
+				margin-right: auto;
+				max-width: 30rem;
+				padding: 1.5rem;
+				position: relative;
+				text-align: center;
+				z-index: 10;
 			}
 		  `.replace(/\s\s+/g, ' ').trim();
 		  document.head.appendChild(styleEl);
@@ -47,7 +79,7 @@ export default class Cover extends HTMLElement {
 	}
 
 	get centered() {
-	  return this.getAttribute('centered') || 'h1';
+	  return this.getAttribute('centered') || 'h2';
 	}
 
 	set centered(val) {
@@ -63,7 +95,7 @@ export default class Cover extends HTMLElement {
 	}
 
 	get minHeight() {
-	  return this.getAttribute('minHeight') || '100vh';
+	  return this.getAttribute('minHeight') || '40rem';
 	}
 
 	set minHeight(val) {
@@ -90,11 +122,8 @@ export default class Cover extends HTMLElement {
 	  this.render();
 	}
 
-	attributeChangedCallback() {
-	  this.render();
+	attributeChangedCallback( name, oldValue, newValue ) {
+		console.log(`We have ${name} changed to ${newValue}, old value was ${oldValue}` );
+		this.render();
 	}
-}
-
-if ('customElements' in window) {
-	customElements.define( 'cover-l', Cover );
 }

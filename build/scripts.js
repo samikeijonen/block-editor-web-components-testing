@@ -385,14 +385,144 @@ module.exports = _wrapNativeSuper;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _web_components_static_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web-components/static-component */ "./src/web-components/static-component/index.js");
 /* harmony import */ var _web_components_dynamic_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web-components/dynamic-component */ "./src/web-components/dynamic-component/index.js");
+/* harmony import */ var _web_components_cover__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web-components/cover */ "./src/web-components/cover/index.js");
 /**
  * Internal dependencies
  */
+
 
  //import './web-components/cover';
 
 customElements.define('foxland-static', _web_components_static_component__WEBPACK_IMPORTED_MODULE_0__["default"]);
 customElements.define('foxland-dynamic', _web_components_dynamic_component__WEBPACK_IMPORTED_MODULE_1__["default"]);
+customElements.define('cover-l', _web_components_cover__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+/***/ }),
+
+/***/ "./src/web-components/cover/index.js":
+/*!*******************************************!*\
+  !*** ./src/web-components/cover/index.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Cover; });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ "./node_modules/@babel/runtime/helpers/wrapNativeSuper.js");
+/* harmony import */ var _babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+
+/**
+ * @module cover-l
+ * @description
+ * A custom element for covering a block-level element horizontally,
+ * with a max-width value representing the typographic measure
+ * @property {string} centered=h2 A simple selector such an element or class selector, representing the centered (main) element in the cover
+ * @property {string} space=var(--s1) The minimum space between and around all of the child elements
+ * @property {string} minHeight=40rem The minimum height for the **Cover**
+ * @property {boolean} noPad=false Whether the spacing is also applied as padding to the container element
+ */
+var Cover =
+/*#__PURE__*/
+function (_HTMLElement) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(Cover, _HTMLElement);
+
+  function Cover() {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Cover);
+
+    _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default()(Cover).call(this));
+
+    _this.render = function () {
+      _this.i = "Cover-".concat([_this.centered, _this.space, _this.minHeight, _this.noPad].join(''));
+      _this.dataset.i = _this.i;
+
+      if (!document.getElementById(_this.i)) {
+        var styleEl = document.createElement('style');
+        styleEl.id = _this.i;
+        styleEl.innerHTML = "\n\t\t\tcover-l {\n\t\t\t\tdisplay: flex;\n\t\t\t\tflex-direction: column;\n\t\t\t\tposition: relative;\n\t\t\t}\n\n\t\t\t.cover-l-bg,\n\t\t\t.editor-styles-wrapper .cover-l-bg {\n\t\t\t\tbottom: 0;\n\t\t\t\tobject-fit: cover;\n\t\t\t\tposition: absolute;\n\t\t\t\theight: 100%;\n\t\t\t\tleft: 0;\n\t\t\t\tright: 0;\n\t\t\t\ttop: 0;\n\t\t\t\twidth: 100%;\n\t\t\t\tz-index: 0;\n\t\t\t}\n\n\t\t\t[data-i=\"".concat(_this.i, "\"] {\n\t\t\t  min-height: ").concat(_this.minHeight, ";\n\t\t\t  padding: ").concat(!_this.noPad ? _this.space : '0', ";\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > * {\n\t\t\t  margin-top: ").concat(_this.space, ";\n\t\t\t  margin-bottom: ").concat(_this.space, ";\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > :first-child:not(").concat(_this.centered, ") {\n\t\t\t  margin-top: 0;\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > :last-child:not(").concat(_this.centered, ") {\n\t\t\t  margin-bottom: 0;\n\t\t\t}\n\n\t\t\t[data-i=\"").concat(_this.i, "\"] > ").concat(_this.centered, ",\n\t\t\t.editor-styles-wrapper [data-i=\"").concat(_this.i, "\"] > * {\n\t\t\t  margin-top: auto;\n\t\t\t  margin-bottom: auto;\n\t\t\t}\n\n\t\t\t.centered,\n\t\t\t.editor-styles-wrapper .centered {\n\t\t\t\tbackground-color: rgba(255, 255, 255, 0.5);\n\t\t\t\tmargin-left: auto;\n\t\t\t\tmargin-right: auto;\n\t\t\t\tmax-width: 30rem;\n\t\t\t\tpadding: 1.5rem;\n\t\t\t\tposition: relative;\n\t\t\t\ttext-align: center;\n\t\t\t\tz-index: 10;\n\t\t\t}\n\t\t  ").replace(/\s\s+/g, ' ').trim();
+        document.head.appendChild(styleEl);
+      }
+    };
+
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Cover, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      this.render();
+    }
+  }, {
+    key: "attributeChangedCallback",
+    value: function attributeChangedCallback(name, oldValue, newValue) {
+      console.log("We have ".concat(name, " changed to ").concat(newValue, ", old value was ").concat(oldValue));
+      this.render();
+    }
+  }, {
+    key: "centered",
+    get: function get() {
+      return this.getAttribute('centered') || 'h2';
+    },
+    set: function set(val) {
+      return this.setAttribute('centered', val);
+    }
+  }, {
+    key: "space",
+    get: function get() {
+      return this.getAttribute('space') || 'var(--s1)';
+    },
+    set: function set(val) {
+      return this.setAttribute('space', val);
+    }
+  }, {
+    key: "minHeight",
+    get: function get() {
+      return this.getAttribute('minHeight') || '40rem';
+    },
+    set: function set(val) {
+      return this.setAttribute('minHeight', val);
+    }
+  }, {
+    key: "noPad",
+    get: function get() {
+      return this.hasAttribute('noPad');
+    },
+    set: function set(val) {
+      if (val) {
+        return this.setAttribute('noPad', '');
+      } else {
+        return this.removeAttribute('noPad');
+      }
+    }
+  }], [{
+    key: "observedAttributes",
+    get: function get() {
+      return ['centered', 'space', 'minHeight', 'noPad'];
+    }
+  }]);
+
+  return Cover;
+}(_babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5___default()(HTMLElement));
+
+
 
 /***/ }),
 
@@ -424,7 +554,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var template = document.createElement('template');
-template.innerHTML = "\n\t<style>\n\t\t:host {\n\t\t\tdisplay: block;\n\t\t}\n\t</style>\n\t<slot name=\"title\"></slot>\n\t<slot name=\"text\"></slot>\n";
+template.innerHTML = "\n\t<style>\n\t\t:host {\n\t\t\tbackground-color: #f8f61c;\n\t\t\tdisplay: block;\n\t\t\tpadding: 1rem;\n\t\t\tposition: relative;\n\t\t}\n\n\t\t::slotted(p) {\n\t\t\tmargin-bottom: 0;\n\t\t}\n\n\t\t.svg-component {\n\t\t\tleft: -16px;\n\t\t\tposition: absolute;\n\t\t\ttop: -12px;\n\t\t}\n\t</style>\n\t<slot name=\"title\"></slot>\n\t<slot name=\"text\"></slot>\n\t<svg class=\"svg-component\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"23\"><path d=\"M15.713 6.511c-2.41 0-4.376 2.057-4.376 4.591 0 2.527 1.96 4.591 4.376 4.591 2.41 0 4.375-2.057 4.375-4.591 0-2.527-1.966-4.591-4.375-4.591z\"/><path d=\"M15.713 18.358c-3.88 0-7.04-3.253-7.04-7.256s3.16-7.255 7.04-7.255c3.879 0 7.04 3.252 7.04 7.255s-3.161 7.256-7.04 7.256zm16.085-7.961C27.63 3.709 22.015.027 16 .027 9.985.026 4.369 3.708.202 10.396c-.267.43-.267.98 0 1.41C4.37 18.495 9.985 22.178 16 22.178c6.015 0 11.624-3.683 15.798-10.37.267-.432.267-.98 0-1.411z\"/></svg>\n";
 
 var FoxlandDynamic =
 /*#__PURE__*/

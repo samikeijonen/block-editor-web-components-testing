@@ -32,7 +32,7 @@ class FoxBlocksWebComponents extends Component {
 
 		const setTitle = (
 			<RichText
-				tagName="h2"
+				tagName="span"
 				className=""
 				placeholder={ __( 'Type Title', 'fox-blocks-web-components' ) }
 				keepPlaceholderOnFocus
@@ -43,8 +43,7 @@ class FoxBlocksWebComponents extends Component {
 
 		const setText = (
 			<RichText
-				tagName="div"
-				multiline="p"
+				tagName="span"
 				placeholder={ __( 'Type Text', 'fox-blocks-web-components' ) }
 				keepPlaceholderOnFocus
 				value={ text }
@@ -53,10 +52,10 @@ class FoxBlocksWebComponents extends Component {
 		);
 
 		return (
-			<>
-				{ setTitle }
-				{ setText }
-			</>
+			<foxland-dynamic>
+				<h2 slot="title">{ setTitle }</h2>
+				<p slot="text">{ setText }</p>
+			</foxland-dynamic>
 		);
 	}
 }
@@ -81,8 +80,8 @@ registerBlockType( name, {
 
 		return (
 			<foxland-dynamic>
-				<h2 slot="title">{ title }</h2>
-				<p slot="text">{ text }</p>
+				<h2 slot="title"><RichText.Content value={ title } /></h2>
+				<p slot="text"><RichText.Content value={ text } /></p>
 			</foxland-dynamic>
 		);
 	},

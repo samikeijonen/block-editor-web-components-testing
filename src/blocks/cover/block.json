@@ -3,6 +3,19 @@
 	"category": "layout",
 	"attributes": {
 		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"title": {
+			"type": "string"
+		},
+		"imgURL": {
+			"type": "string"
+		},
+		"imgID": {
+			"type": "number"
+		},
+		"minHeight": {
 			"type": "string"
 		}
 	}
