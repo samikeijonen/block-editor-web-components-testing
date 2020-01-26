@@ -1,0 +1,15 @@
+{
+	"name": "fox-blocks/dynamic-web-component",
+	"category": "layout",
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"text": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		}
+	}
+}

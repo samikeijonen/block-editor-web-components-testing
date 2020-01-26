@@ -1,0 +1,9 @@
+{
+	"name": "fox-blocks/cover-web-component",
+	"category": "layout",
+	"attributes": {
+		"align": {
+			"type": "string"
+		}
+	}
+}
