@@ -4,7 +4,7 @@ class FoxlandStatic extends HTMLElement {
 		super();
 
 		// The Element.attachShadow() method attaches a shadow DOM tree to the specified element and returns a reference to its ShadowRoot.
-    	// https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow
+		// https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow
 		const shadow = this.attachShadow( { mode: 'open' } );
 
 		// Styles.
