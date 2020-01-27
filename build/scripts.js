@@ -433,9 +433,7 @@ __webpack_require__.r(__webpack_exports__);
  * A custom element for covering a block-level element horizontally,
  * with a max-width value representing the typographic measure
  * @property {string} centered=h2 A simple selector such an element or class selector, representing the centered (main) element in the cover
- * @property {string} space=var(--s1) The minimum space between and around all of the child elements
- * @property {string} minHeight=40rem The minimum height for the **Cover**
- * @property {boolean} noPad=false Whether the spacing is also applied as padding to the container element
+ * @property {string} minheight=40rem The minimum height for the **Cover**
  */
 var Cover =
 /*#__PURE__*/
@@ -450,11 +448,11 @@ function (_HTMLElement) {
     _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default()(Cover).call(this));
 
     _this.render = function () {
-      _this.i = "Cover-".concat([_this.centered, _this.space, _this.minHeight, _this.noPad].join(''));
+      _this.i = "Cover-".concat([_this.centered, _this.minheight].join(''));
       _this.dataset.i = _this.i;
       var styleEl = document.createElement('style');
       styleEl.id = _this.i;
-      styleEl.innerHTML = "\n\t\tcover-l {\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: column;\n\t\t\tposition: relative;\n\t\t}\n\n\t\t.cover-l-bg,\n\t\t.editor-styles-wrapper .cover-l-bg {\n\t\t\tbottom: 0;\n\t\t\tobject-fit: cover;\n\t\t\tposition: absolute;\n\t\t\theight: 100%;\n\t\t\tleft: 0;\n\t\t\tright: 0;\n\t\t\ttop: 0;\n\t\t\twidth: 100%;\n\t\t\tz-index: 0;\n\t\t}\n\n\t\t[data-i=\"".concat(_this.i, "\"] {\n\t\t\tmin-height: ").concat(_this.minHeight, ";\n\t\t\tpadding: ").concat(!_this.noPad ? _this.space : '0', ";\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > * {\n\t\t\tmargin-top: ").concat(_this.space, ";\n\t\t\tmargin-bottom: ").concat(_this.space, ";\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > :first-child:not(").concat(_this.centered, ") {\n\t\t\tmargin-top: 0;\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > :last-child:not(").concat(_this.centered, ") {\n\t\t\tmargin-bottom: 0;\n\t\t}\n\n\t\t[data-i=\"").concat(_this.i, "\"] > ").concat(_this.centered, ",\n\t\t.editor-styles-wrapper [data-i=\"").concat(_this.i, "\"] > * {\n\t\t\tmargin-top: auto;\n\t\t\tmargin-bottom: auto;\n\t\t}\n\n\t\t.centered,\n\t\t.editor-styles-wrapper .centered {\n\t\t\tbackground-color: rgba(255, 255, 255, 0.5);\n\t\t\tmargin-left: auto;\n\t\t\tmargin-right: auto;\n\t\t\tmax-width: 30rem;\n\t\t\tpadding: 1.5rem;\n\t\t\tposition: relative;\n\t\t\ttext-align: center;\n\t\t\tz-index: 10;\n\t\t}\n\t\t").replace(/\s\s+/g, ' ').trim();
+      styleEl.innerHTML = "\n\t\tcover-l {\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: column;\n\t\t\tposition: relative;\n\t\t}\n\n\t\t.cover-l-bg,\n\t\t.editor-styles-wrapper .cover-l-bg {\n\t\t\tbottom: 0;\n\t\t\tobject-fit: cover;\n\t\t\tposition: absolute;\n\t\t\theight: 100%;\n\t\t\tleft: 0;\n\t\t\tright: 0;\n\t\t\ttop: 0;\n\t\t\twidth: 100%;\n\t\t\tz-index: 0;\n\t\t}\n\n\t\t[data-i=\"".concat(_this.i, "\"] {\n\t\t\tmin-height: ").concat(_this.minheight, ";\n\t\t}\n\n\t\t.centered,\n\t\t.editor-styles-wrapper .centered {\n\t\t\tbackground-color: rgba(255, 255, 255, 0.5);\n\t\t\tmargin: auto;\n\t\t\tmax-width: 30rem;\n\t\t\tpadding: 1.5rem;\n\t\t\tposition: relative;\n\t\t\ttext-align: center;\n\t\t\tz-index: 10;\n\t\t}\n\t\t").replace(/\s\s+/g, ' ').trim();
       document.head.appendChild(styleEl);
     };
 
@@ -481,37 +479,17 @@ function (_HTMLElement) {
       return this.setAttribute('centered', val);
     }
   }, {
-    key: "space",
+    key: "minheight",
     get: function get() {
-      return this.getAttribute('space') || 'var(--s1)';
+      return this.getAttribute('minheight') || '40rem';
     },
     set: function set(val) {
-      return this.setAttribute('space', val);
-    }
-  }, {
-    key: "minHeight",
-    get: function get() {
-      return this.getAttribute('minHeight') || '40rem';
-    },
-    set: function set(val) {
-      return this.setAttribute('minHeight', val);
-    }
-  }, {
-    key: "noPad",
-    get: function get() {
-      return this.hasAttribute('noPad');
-    },
-    set: function set(val) {
-      if (val) {
-        return this.setAttribute('noPad', '');
-      } else {
-        return this.removeAttribute('noPad');
-      }
+      return this.setAttribute('minheight', val);
     }
   }], [{
     key: "observedAttributes",
     get: function get() {
-      return ['centered', 'space', 'minHeight', 'noPad'];
+      return ['centered', 'minheight'];
     }
   }]);
 
@@ -533,12 +511,12 @@ function (_HTMLElement) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
 /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ "./node_modules/@babel/runtime/helpers/wrapNativeSuper.js");
@@ -557,24 +535,13 @@ var FoxlandDynamic =
 function (_HTMLElement) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(FoxlandDynamic, _HTMLElement);
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(FoxlandDynamic, null, [{
-    key: "observedAttributes",
-    // Note that to get the attributeChangedCallback() callback to fire when an attribute changes,
-    // you have to observe the attributes.
-    // This is done by specifying a static get observedAttributes() method inside custom element class.
-    // This should return  an array containing the names of the attributes you want to observe:
-    get: function get() {
-      return ['title', 'text'];
-    }
-  }]);
-
   function FoxlandDynamic() {
     var _this;
 
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, FoxlandDynamic);
 
     // Always call super first in constructor.
-    _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_1___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_2___default()(FoxlandDynamic).call(this)); // The Element.attachShadow() method attaches a shadow DOM tree to the specified element and returns a reference to its ShadowRoot.
+    _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default()(FoxlandDynamic).call(this)); // The Element.attachShadow() method attaches a shadow DOM tree to the specified element and returns a reference to its ShadowRoot.
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow
 
     _this.attachShadow({
@@ -587,15 +554,10 @@ function (_HTMLElement) {
   } // The connectedCallback() runs each time the element is added to the DOM.
 
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(FoxlandDynamic, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(FoxlandDynamic, [{
     key: "connectedCallback",
     value: function connectedCallback() {
       console.log(this);
-    }
-  }, {
-    key: "attributeChangedCallback",
-    value: function attributeChangedCallback(name, oldValue, newValue) {
-      console.log("We have ".concat(name, " changed to ").concat(newValue, ", old value was ").concat(oldValue)); //updateStyle(this);
     }
   }]);
 

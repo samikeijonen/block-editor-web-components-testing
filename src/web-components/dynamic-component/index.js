@@ -25,14 +25,6 @@ template.innerHTML = `
 
 class FoxlandDynamic extends HTMLElement {
 
-	 // Note that to get the attributeChangedCallback() callback to fire when an attribute changes,
-	 // you have to observe the attributes.
-	 // This is done by specifying a static get observedAttributes() method inside custom element class.
-	 // This should return  an array containing the names of the attributes you want to observe:
-	static get observedAttributes() {
-		return ['title', 'text'];
-	}
-
 	constructor() {
 		// Always call super first in constructor.
 		super();
@@ -47,11 +39,6 @@ class FoxlandDynamic extends HTMLElement {
 	 // The connectedCallback() runs each time the element is added to the DOM.
 	connectedCallback() {
 		console.log( this );
-	}
-
-	attributeChangedCallback( name, oldValue, newValue ) {
-		console.log(`We have ${name} changed to ${newValue}, old value was ${oldValue}` );
-		//updateStyle(this);
 	}
 }
 
