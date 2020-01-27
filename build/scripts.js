@@ -391,7 +391,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
- //import './web-components/cover';
 
 customElements.define('foxland-static', _web_components_static_component__WEBPACK_IMPORTED_MODULE_0__["default"]);
 customElements.define('foxland-dynamic', _web_components_dynamic_component__WEBPACK_IMPORTED_MODULE_1__["default"]);
