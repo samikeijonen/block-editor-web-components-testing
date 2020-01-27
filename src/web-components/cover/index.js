@@ -1,12 +1,12 @@
 /**
- * @module cover-l
+ * @module foxland-cover
  * @description
  * A custom element for covering a block-level element horizontally,
  * with a max-width value representing the typographic measure
  * @property {string} centered=h2 A simple selector such an element or class selector, representing the centered (main) element in the cover
  * @property {string} minheight=40rem The minimum height for the **Cover**
  */
-class Cover extends HTMLElement {
+class FoxlandCover extends HTMLElement {
 	constructor() {
 	  super();
 
@@ -16,14 +16,14 @@ class Cover extends HTMLElement {
 		let styleEl = document.createElement('style');
 		styleEl.id = this.i;
 		styleEl.innerHTML = `
-		cover-l {
+		foxland-cover {
 			display: flex;
 			flex-direction: column;
 			position: relative;
 		}
 
-		.cover-l-bg,
-		.editor-styles-wrapper .cover-l-bg {
+		.foxland-cover-bg,
+		.editor-styles-wrapper .foxland-cover-bg {
 			bottom: 0;
 			object-fit: cover;
 			position: absolute;
@@ -84,4 +84,4 @@ class Cover extends HTMLElement {
 	}
 }
 
-export default Cover;
+export default FoxlandCover;

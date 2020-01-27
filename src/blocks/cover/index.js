@@ -67,9 +67,9 @@
 					</PanelBody>
 				</InspectorControls>
 
-				<cover-l minHeight={ minHeight }>
+				<foxland-cover minHeight={ minHeight }>
 					{ ! imgURL && (
-						<div className="cover-l-bg">
+						<div className="foxland-cover-bg">
 							<MediaPlaceholder
 								className=""
 								onSelect={ onSelectImage }
@@ -79,11 +79,11 @@
 					) }
 
 					{ imgURL && (
-						<img className="cover-l-bg" src={ imgURL } alt="" />
+						<img className="foxland-cover-bg" src={ imgURL } alt="" />
 					) }
 
 					<h2 className="centered">{ setTitle }</h2>
-				</cover-l>
+				</foxland-cover>
 			</>
 		);
 	}
@@ -109,10 +109,10 @@
 		} = attributes;
 
 		return (
-			<cover-l minHeight={ minHeight }>
-				<img className="cover-l-bg" src={ imgURL } alt="" />
+			<foxland-cover minHeight={ minHeight }>
+				<img className="foxland-cover-bg" src={ imgURL } alt="" />
 				<h2 className="centered"><RichText.Content value={ title } /></h2>
-			</cover-l>
+			</foxland-cover>
 		);
 	 },
  } );

@@ -44,7 +44,7 @@ By dynamic I mean that we can add text inside the web component. I tested using 
 Simple cover component with background image and title. Additional attribute `minheight` for chanching component minimum height. This works the same way as any attribute in the editor.
 
 ```js
-<cover-l minHeight={ minHeight }>
+<foxland-cover minHeight={ minHeight }>
 ```
 
 ## Other examples

@@ -439,16 +439,16 @@ function (_Component) {
             minHeight: value
           });
         }
-      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("cover-l", {
+      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("foxland-cover", {
         minHeight: minHeight
       }, !imgURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
-        className: "cover-l-bg"
+        className: "foxland-cover-bg"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(MediaPlaceholder, {
         className: "",
         onSelect: onSelectImage,
         label: __('Image background Placeholder', 'fox-blocks-web-components')
       })), imgURL && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("img", {
-        className: "cover-l-bg",
+        className: "foxland-cover-bg",
         src: imgURL,
         alt: ""
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h2", {
@@ -477,10 +477,10 @@ registerBlockType(name, {
         imgURL = attributes.imgURL,
         imgID = attributes.imgID,
         minHeight = attributes.minHeight;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("cover-l", {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("foxland-cover", {
       minHeight: minHeight
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("img", {
-      className: "cover-l-bg",
+      className: "foxland-cover-bg",
       src: imgURL,
       alt: ""
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h2", {
