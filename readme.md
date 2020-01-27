@@ -9,9 +9,9 @@
 
 In short, block editor and web components work well together. At least for simple blocks that I tested.
 
-My idea was that web component format like `<fox-component></component>` could be used in the editor and in the front-end almost out of the box. I used the following examples.
+My idea was that web component format like `<fox-component></fox-component>` could be used in the editor and in the front-end almost out of the box. I used the following examples.
 
-## Static web component.
+## Static web component
 
 By static I mean all the markup lives inside the web component. No attributes or anything you can change.
 
@@ -19,7 +19,7 @@ In this case it was just matter of outputting `<foxland-static></foxland-static>
 
 Nothing fancy but works.
 
-## Dynamic web component.
+## Dynamic web component
 
 By dynamic I mean that we can add text inside the web component. I tested using `slots` with `RichText` in this case.
 
@@ -37,6 +37,14 @@ By dynamic I mean that we can add text inside the web component. I tested using 
 	<h2 slot="title"><RichText.Content value={ title } /></h2>
 	<p slot="text"><RichText.Content value={ text } /></p>
 </foxland-dynamic>
+```
+
+## Simple cover component
+
+Simple cover component with background image and title. Additional attribute `minheight` for chanching component minimum height. This works the same way as any attribute in the editor.
+
+```js
+<cover-l minHeight={ minHeight }>
 ```
 
 ## Other examples
