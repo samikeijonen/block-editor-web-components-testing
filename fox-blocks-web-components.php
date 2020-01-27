@@ -133,7 +133,7 @@ final class Plugin {
 	public function editor_assets() {
 		wp_enqueue_script(
 			'fox-blocks-web-components',
-			$this->uri . 'build/index.js',
+			$this->uri . 'build/blocks.js',
 			[
 				'wp-blocks',
 				'wp-i18n',
