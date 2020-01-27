@@ -447,12 +447,22 @@ function (_HTMLElement) {
     _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default()(this, _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3___default()(FoxlandCover).call(this));
 
     _this.render = function () {
+      if (!document.getElementById('foxland-cover-base')) {
+        var styleBase = document.createElement('style');
+        styleBase.id = 'foxland-cover-base';
+        styleBase.innerHTML = "\n\t\t\tfoxland-cover {\n\t\t\t\tdisplay: flex;\n\t\t\t\tflex-direction: column;\n\t\t\t\tposition: relative;\n\t\t\t}\n\n\t\t\t.foxland-cover-bg,\n\t\t\t.editor-styles-wrapper .foxland-cover-bg {\n\t\t\t\tbottom: 0;\n\t\t\t\tobject-fit: cover;\n\t\t\t\tposition: absolute;\n\t\t\t\theight: 100%;\n\t\t\t\tleft: 0;\n\t\t\t\tright: 0;\n\t\t\t\ttop: 0;\n\t\t\t\twidth: 100%;\n\t\t\t\tz-index: 0;\n\t\t\t}\n\n\t\t\t.centered,\n\t\t\t.editor-styles-wrapper .centered {\n\t\t\t\tbackground-color: rgba(255, 255, 255, 0.5);\n\t\t\t\tmargin: auto;\n\t\t\t\tmax-width: 30rem;\n\t\t\t\tpadding: 1.5rem;\n\t\t\t\tposition: relative;\n\t\t\t\ttext-align: center;\n\t\t\t\tz-index: 10;\n\t\t\t}\n\t\t\t".replace(/\s\s+/g, ' ').trim();
+        document.head.appendChild(styleBase);
+      }
+
       _this.i = "Cover-".concat([_this.centered, _this.minheight].join(''));
-      _this.dataset.i = _this.i;
-      var styleEl = document.createElement('style');
-      styleEl.id = _this.i;
-      styleEl.innerHTML = "\n\t\tfoxland-cover {\n\t\t\tdisplay: flex;\n\t\t\tflex-direction: column;\n\t\t\tposition: relative;\n\t\t}\n\n\t\t.foxland-cover-bg,\n\t\t.editor-styles-wrapper .foxland-cover-bg {\n\t\t\tbottom: 0;\n\t\t\tobject-fit: cover;\n\t\t\tposition: absolute;\n\t\t\theight: 100%;\n\t\t\tleft: 0;\n\t\t\tright: 0;\n\t\t\ttop: 0;\n\t\t\twidth: 100%;\n\t\t\tz-index: 0;\n\t\t}\n\n\t\t[data-i=\"".concat(_this.i, "\"] {\n\t\t\tmin-height: ").concat(_this.minheight, ";\n\t\t}\n\n\t\t.centered,\n\t\t.editor-styles-wrapper .centered {\n\t\t\tbackground-color: rgba(255, 255, 255, 0.5);\n\t\t\tmargin: auto;\n\t\t\tmax-width: 30rem;\n\t\t\tpadding: 1.5rem;\n\t\t\tposition: relative;\n\t\t\ttext-align: center;\n\t\t\tz-index: 10;\n\t\t}\n\t\t").replace(/\s\s+/g, ' ').trim();
-      document.head.appendChild(styleEl);
+      _this.dataset.i = _this.i; // Add min-height inline styles only if it's not already added.
+
+      if (!document.getElementById(_this.i)) {
+        var styleMinHeight = document.createElement('style');
+        styleMinHeight.id = _this.i;
+        styleMinHeight.innerHTML = "\n\t\t\t\t[data-i=\"".concat(_this.i, "\"] {\n\t\t\t\t\tmin-height: ").concat(_this.minheight, ";\n\t\t\t\t}\n\t\t\t").replace(/\s\s+/g, ' ').trim();
+        document.head.appendChild(styleMinHeight);
+      }
     };
 
     return _this;

@@ -6,7 +6,7 @@
  const { Component } = wp.element;
  const { MediaPlaceholder } = wp.blockEditor;
  const { InspectorControls, RichText } = wp.editor;
- const { PanelBody, TextControl } = wp.components;
+ const { PanelBody, RadioControl } = wp.components;
 
  /**
   * Internal dependencies
@@ -58,10 +58,16 @@
 			<>
 				<InspectorControls key="inspector">
 					<PanelBody title={ __( 'Cover Options', 'fox-blocks-web-components' ) } initialOpen={ true }>
-						<TextControl
+						<RadioControl
 							label={ __( 'Min height', 'temenos' ) }
-							help={ __( 'For example 30rem, or 80vh.', 'fox-blocks-web-components' ) }
-							value={ minHeight }
+							selected={ minHeight }
+							options={ [
+								{ label: '30rem', value: '30rem' },
+								{ label: '40rem', value: '40rem' },
+								{ label: '50rem', value: '50rem' },
+								{ label: '80vh', value: '80vh' },
+								{ label: '100vh', value: '100vh' },
+							] }
 							onChange={ ( value ) => setAttributes( { minHeight: value } ) }
 						/>
 					</PanelBody>

@@ -16,7 +16,8 @@
 			"type": "number"
 		},
 		"minHeight": {
-			"type": "string"
+			"type": "string",
+			"default": "40rem"
 		}
 	}
 }

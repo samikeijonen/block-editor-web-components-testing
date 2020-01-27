@@ -291,7 +291,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! exports provided: name, category, attributes, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"fox-blocks/cover-web-component\",\"category\":\"layout\",\"attributes\":{\"align\":{\"type\":\"string\",\"default\":\"full\"},\"title\":{\"type\":\"string\"},\"imgURL\":{\"type\":\"string\"},\"imgID\":{\"type\":\"number\"},\"minHeight\":{\"type\":\"string\"}}}");
+module.exports = JSON.parse("{\"name\":\"fox-blocks/cover-web-component\",\"category\":\"layout\",\"attributes\":{\"align\":{\"type\":\"string\",\"default\":\"full\"},\"title\":{\"type\":\"string\"},\"imgURL\":{\"type\":\"string\"},\"imgID\":{\"type\":\"number\"},\"minHeight\":{\"type\":\"string\",\"default\":\"40rem\"}}}");
 
 /***/ }),
 
@@ -369,7 +369,7 @@ var _wp$editor = wp.editor,
     RichText = _wp$editor.RichText;
 var _wp$components = wp.components,
     PanelBody = _wp$components.PanelBody,
-    TextControl = _wp$components.TextControl;
+    RadioControl = _wp$components.RadioControl;
 /**
  * Internal dependencies
  */
@@ -430,10 +430,25 @@ function (_Component) {
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(PanelBody, {
         title: __('Cover Options', 'fox-blocks-web-components'),
         initialOpen: true
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(TextControl, {
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(RadioControl, {
         label: __('Min height', 'temenos'),
-        help: __('For example 30rem, or 80vh.', 'fox-blocks-web-components'),
-        value: minHeight,
+        selected: minHeight,
+        options: [{
+          label: '30rem',
+          value: '30rem'
+        }, {
+          label: '40rem',
+          value: '40rem'
+        }, {
+          label: '50rem',
+          value: '50rem'
+        }, {
+          label: '80vh',
+          value: '80vh'
+        }, {
+          label: '100vh',
+          value: '100vh'
+        }],
         onChange: function onChange(value) {
           return setAttributes({
             minHeight: value

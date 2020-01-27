@@ -11,46 +11,58 @@ class FoxlandCover extends HTMLElement {
 	  super();
 
 	  this.render = () => {
+		if ( ! document.getElementById( 'foxland-cover-base' ) ) {
+			let styleBase = document.createElement('style');
+			styleBase.id = 'foxland-cover-base';
+			styleBase.innerHTML = `
+			foxland-cover {
+				display: flex;
+				flex-direction: column;
+				position: relative;
+			}
+
+			.foxland-cover-bg,
+			.editor-styles-wrapper .foxland-cover-bg {
+				bottom: 0;
+				object-fit: cover;
+				position: absolute;
+				height: 100%;
+				left: 0;
+				right: 0;
+				top: 0;
+				width: 100%;
+				z-index: 0;
+			}
+
+			.centered,
+			.editor-styles-wrapper .centered {
+				background-color: rgba(255, 255, 255, 0.5);
+				margin: auto;
+				max-width: 30rem;
+				padding: 1.5rem;
+				position: relative;
+				text-align: center;
+				z-index: 10;
+			}
+			`.replace(/\s\s+/g, ' ').trim();
+			document.head.appendChild( styleBase );
+		}
+
 		this.i = `Cover-${[this.centered, this.minheight].join('')}`;
 		this.dataset.i = this.i;
-		let styleEl = document.createElement('style');
-		styleEl.id = this.i;
-		styleEl.innerHTML = `
-		foxland-cover {
-			display: flex;
-			flex-direction: column;
-			position: relative;
-		}
 
-		.foxland-cover-bg,
-		.editor-styles-wrapper .foxland-cover-bg {
-			bottom: 0;
-			object-fit: cover;
-			position: absolute;
-			height: 100%;
-			left: 0;
-			right: 0;
-			top: 0;
-			width: 100%;
-			z-index: 0;
-		}
+		// Add min-height inline styles only if it's not already added.
+		if ( ! document.getElementById( this.i ) ) {
+			let styleMinHeight = document.createElement('style');
+			styleMinHeight.id = this.i;
 
-		[data-i="${this.i}"] {
-			min-height: ${this.minheight};
+			styleMinHeight.innerHTML = `
+				[data-i="${this.i}"] {
+					min-height: ${this.minheight};
+				}
+			`.replace(/\s\s+/g, ' ').trim();
+			document.head.appendChild( styleMinHeight );
 		}
-
-		.centered,
-		.editor-styles-wrapper .centered {
-			background-color: rgba(255, 255, 255, 0.5);
-			margin: auto;
-			max-width: 30rem;
-			padding: 1.5rem;
-			position: relative;
-			text-align: center;
-			z-index: 10;
-		}
-		`.replace(/\s\s+/g, ' ').trim();
-		document.head.appendChild(styleEl);
 	  }
 	}
 
