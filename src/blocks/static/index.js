@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
-const { registerBlockType } = wp.blocks;
 const { Component } = wp.element;
 
 /**
@@ -29,7 +28,7 @@ class FoxBlocksWebComponents extends Component {
 	}
 }
 
-registerBlockType( name, {
+const settings = {
 	title: __( 'Web Components', 'fox-blocks-web-components' ),
 	description: __( 'Test web components.', 'fox-blocks-web-components' ),
 	icon,
@@ -45,4 +44,7 @@ registerBlockType( name, {
 			<foxland-static></foxland-static>
 		);
 	},
-} );
+};
+
+// Export the name and the settings.
+export { name, settings };

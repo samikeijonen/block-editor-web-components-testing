@@ -1,66 +1,19 @@
 /**
- * WordPress dependencies
+ * WordPress dependencies.
  */
 const { __ } = wp.i18n;
-const { registerBlockType } = wp.blocks;
-const { Component } = wp.element;
-
 const { RichText } = wp.editor;
 
-
 /**
- * Internal dependencies
+ * Internal dependencies.
  */
 import icon from './icon';
 import metadata from './block.json';
+import edit from './edit';
 
 const { name, category, attributes } = metadata;
 
-class FoxBlocksWebComponents extends Component {
-	constructor() {
-		super( ...arguments );
-	}
-
-	render() {
-		const {
-			attributes: {
-				title,
-				text,
-			},
-			setAttributes,
-		} = this.props;
-
-		const setTitle = (
-			<RichText
-				tagName="span"
-				className=""
-				placeholder={ __( 'Type Title', 'fox-blocks-web-components' ) }
-				keepPlaceholderOnFocus
-				value={ title }
-				onChange={ ( value ) => setAttributes( { title: value } ) }
-			/>
-		);
-
-		const setText = (
-			<RichText
-				tagName="span"
-				placeholder={ __( 'Type Text', 'fox-blocks-web-components' ) }
-				keepPlaceholderOnFocus
-				value={ text }
-				onChange={ ( value ) => setAttributes( { text: value } ) }
-			/>
-		);
-
-		return (
-			<foxland-dynamic>
-				<h2 slot="title">{ setTitle }</h2>
-				<p slot="text">{ setText }</p>
-			</foxland-dynamic>
-		);
-	}
-}
-
-registerBlockType( name, {
+const settings = {
 	title: __( 'Dynamic Web Component', 'fox-blocks-web-components' ),
 	description: __( 'Test web components.', 'fox-blocks-web-components' ),
 	icon,
@@ -70,9 +23,8 @@ registerBlockType( name, {
 	},
 	attributes,
 	category,
-	edit: FoxBlocksWebComponents,
+	edit,
 	save( { attributes } ) {
-
 		const {
 			title,
 			text
@@ -85,4 +37,7 @@ registerBlockType( name, {
 			</foxland-dynamic>
 		);
 	},
-} );
+};
+
+// Export the name and the settings.
+export { name, settings };
